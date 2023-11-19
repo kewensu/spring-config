@@ -1,0 +1,10 @@
+server:
+  port: 9400
+#注册到Eureka服务中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://LagouCloudEurekaServerA:9200/eureka,http://LagouCloudEurekaServerB:9201/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
